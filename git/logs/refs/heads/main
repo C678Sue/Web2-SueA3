@@ -1,0 +1,25 @@
+0000000000000000000000000000000000000000 a4f50520f0fba63e8eb28bc6c3068bd95ca0271e yangyijie816 <zhc123001@163.com> 1728376526 +0800	clone: from https://github.com/yangyijie816/Web-Development-II-A2.git
+a4f50520f0fba63e8eb28bc6c3068bd95ca0271e 425299c9f80742a0db99bb228fb353f4c0c566e2 yangyijie816 <zhc123001@163.com> 1728377675 +0800	commit: Combine companion home page codes
+425299c9f80742a0db99bb228fb353f4c0c566e2 db654fc1ac595a4ed6b711fd100078fda4073b72 yangyijie816 <zhc123001@163.com> 1728383065 +0800	commit: Create AdminSide
+db654fc1ac595a4ed6b711fd100078fda4073b72 c1c41df269447daa3fe3900d37f8dfedddc5835e yangyijie816 <zhc123001@163.com> 1728396702 +0800	commit: Add admin page, payee list, category list，Page interface call
+c1c41df269447daa3fe3900d37f8dfedddc5835e 0c0e98327305bdb389286eb00b287d74e49e2a4f yangyijie816 <zhc123001@163.com> 1728408327 +0800	commit: Create new fundraisers, update the fundraiser interface, interface docking, and page rendering
+0c0e98327305bdb389286eb00b287d74e49e2a4f 37fea8a06e2fde08130ddda6a664a733d3ec25f4 yangyijie816 <zhc123001@163.com> 1728408342 +0800	commit: api
+37fea8a06e2fde08130ddda6a664a733d3ec25f4 b9b450620ba678641fb362ac0c2781796e520d26 yangyijie816 <zhc123001@163.com> 1728408362 +0800	commit: api
+b9b450620ba678641fb362ac0c2781796e520d26 fd0dff6f42446d3b5a0b0b3b7a8f015f6d55080d yangyijie816 <zhc123001@163.com> 1728408430 +0800	commit: Create a client donation page，Change the welcome website name
+fd0dff6f42446d3b5a0b0b3b7a8f015f6d55080d e3df2004c416c9f93e0f64b4bd7a187ba15b50cf yangyijie816 <zhc123001@163.com> 1728408458 +0800	commit: Modify New or updated styles on the management terminal
+e3df2004c416c9f93e0f64b4bd7a187ba15b50cf 70822ec3b4003a2b1189df379fc0fb0fbfd11dd3 yangyijie816 <zhc123001@163.com> 1728408490 +0800	commit: Added client donation button jump
+70822ec3b4003a2b1189df379fc0fb0fbfd11dd3 1af1bce142d80ede537e3353cbddb2e0e339bd7c yangyijie816 <zhc123001@163.com> 1728419402 +0800	commit: Modified the original api for getting fundraising details。New Add donation api。
+1af1bce142d80ede537e3353cbddb2e0e339bd7c 3593a0aa0e0a581fcc7a12bf735120d0145db8d9 yangyijie816 <zhc123001@163.com> 1728419459 +0800	commit: Modify details style and add donors list
+3593a0aa0e0a581fcc7a12bf735120d0145db8d9 e291848f615193c2635255d1f0bd5b17d9eb9eee yangyijie816 <zhc123001@163.com> 1728419489 +0800	commit: Interface to donation page
+e291848f615193c2635255d1f0bd5b17d9eb9eee afb8582b973776e684f6aea564b2b4e155934480 yangyijie816 <zhc123001@163.com> 1728419534 +0800	commit: Donation page js implementation
+afb8582b973776e684f6aea564b2b4e155934480 6ea9f5c6b4349fd302203ee251e479d7c37179dd yangyijie816 <zhc123001@163.com> 1728419552 +0800	commit: Overall css style modification
+6ea9f5c6b4349fd302203ee251e479d7c37179dd 8a6e0b68b294f2b9e32b393304e6a1c063c65f90 yangyijie816 <zhc123001@163.com> 1728420899 +0800	commit: Delete the new category function page
+8a6e0b68b294f2b9e32b393304e6a1c063c65f90 983b4a74b0c83e4f1df0757ea98bd63d43569a0e yangyijie816 <zhc123001@163.com> 1728420947 +0800	commit: Delete a field on the management endCURRENT_FUNDING
+983b4a74b0c83e4f1df0757ea98bd63d43569a0e 545f02531b814571252474214511f802d132fec7 yangyijie816 <zhc123001@163.com> 1728420976 +0800	commit: Delete a field on the services end CURRENT_FUNDING
+545f02531b814571252474214511f802d132fec7 96e7b772daa6b7ded86794c40194960f728c6db2 yangyijie816 <zhc123001@163.com> 1728420991 +0800	commit: Delete a field on the services end CURRENT_FUNDING
+96e7b772daa6b7ded86794c40194960f728c6db2 8acf5f46efa8389e4e516752b34a6b422c23636e yangyijie816 <zhc123001@163.com> 1728421009 +0800	commit: Optimize template rendering
+8acf5f46efa8389e4e516752b34a6b422c23636e c3d623ef0abf25f170abd8463cb689f433ccc8c0 yangyijie816 <zhc123001@163.com> 1728455133 +0800	commit: Optimize the server interface
+c3d623ef0abf25f170abd8463cb689f433ccc8c0 e7d2b0b6283594336c22ec01e315ecba39fbdc1f yangyijie816 <zhc123001@163.com> 1728455159 +0800	commit: Modify the style of the management end
+e7d2b0b6283594336c22ec01e315ecba39fbdc1f cfd1382c429509b4621afe73581b8dcf34a6967a yangyijie816 <zhc123001@163.com> 1728478345 +0800	commit: 增加新的素材
+cfd1382c429509b4621afe73581b8dcf34a6967a a03495e8208b342e35cd95cb86220c933ffd6346 yangyijie816 <zhc123001@163.com> 1728478359 +0800	commit: 修改端口号
+a03495e8208b342e35cd95cb86220c933ffd6346 adfe927f3cd92d436edd691ed407f4f9f92e84b4 yangyijie816 <zhc123001@163.com> 1728478379 +0800	commit: 修改端口号
