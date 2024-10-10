@@ -1,3 +1,26 @@
+// Search
+function search() {
+  // Get form form data
+  const organizer = document.getElementById('C').value
+  const city = document.getElementById('D').value
+  const categoryId = document.getElementById('E').value
+  // Inquire
+  getSearch({ organizer, city, categoryId })
+}
+
+// clear form DATA
+function clearCheckboxes() {
+  document.getElementById('C').value = ''
+  document.getElementById('D').value = ''
+  document.getElementById('E').value = ''
+  getSearch({})
+}
+
+// Jump to details page
+function toDetails(id) {
+  window.location.href = './details.html?id=' + id
+}
+
 // Home list template
 function template(data, index) {
     return `

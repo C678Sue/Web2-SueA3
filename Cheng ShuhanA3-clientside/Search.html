@@ -8,14 +8,13 @@
   </head>
 
   <body>
-    <!-- header -->
-    <div class="center header-fixed">
+    <div class="center">
       <div class="header">
         <div class="logo"><a href="./index.html">RiseTogether</a></div>
         <div class="menus">
           <ul id="path">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="./search.html">Crowdfunding</a></li>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#" class="active">Crowdfunding</a></li>
           </ul>
         </div>
         <div class="login">
@@ -25,21 +24,32 @@
         </div>
       </div>
     </div>
-    <!-- Occupying height -->
-    <div class="placeholderDiv"></div>
-    <!-- welcome -->
-    <div class="welcome" id="welcome">
-      We're delighted to have you here. At RiseTogether, we connect passionate fundraisers with generous donors to support meaningful causes!
+    <div class="form">
+      <div class="widthCenter">
+        <div class="input-group">
+          <label class="label">Organizer: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="Email" id="C" class="input" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">City: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="Email" id="D" class="input" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">Category: &nbsp;&nbsp;&nbsp;</label>
+          <select autocomplete="off" name="Email" id="E" class="input">
+            <option value="" disabled style="height: 0" selected></option>
+          </select>
+          <div></div>
+        </div>
+        <div class="button" onclick="search()">Search</div>
+        <div class="button" onclick="clearCheckboxes()">Clear</div>
+      </div>
     </div>
-    <!-- banner -->
-    <div class="banner">
-      <img class="img" src="./image/banner.png" alt="" />
+    <div class="list search">
+      <ul class="widthCenter listStyle" id="F"></ul>
     </div>
-    <!-- list -->
-    <div class="list">
-      <ul class="widthCenter listStyle" id="A"></ul>
-    </div>
-    <!-- footer -->
     <div class="footer">
       <div class="widthCenter">
         <ul>
@@ -68,7 +78,7 @@
           <li>
             <div>Special Thanks</div>
             <div>Hope never fades because of you.</div>
-            <div>Thank you for being part of our journey!</div>
+            <div>Thankyou for being part of our journey!</div>
           </li>
         </ul>
         <div class="footer-text"></div>
@@ -77,9 +87,9 @@
   </body>
   <script src="./js/index.js"></script>
   <script>
-    // Set the greeting roll gradient
-    setWelcome()
-    // Get fundraising list
-    getFundraisers()
+    // Acquisition sort
+    getCategories()
+    // The fetch list is performed by default
+    search()
   </script>
 </html>
