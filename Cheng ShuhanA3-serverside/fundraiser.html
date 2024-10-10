@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin-Side</title>
+  <link rel="stylesheet" href="./style/management.css" />
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="header">
+      <a href="./fundraiser.html">Admin-Side</a>
+    </div>
+    <div class="main">
+      <div class="side">
+        <a href="./fundraiser.html" class="active">Fundraiser</a>
+        <a href="./category.html">Category</a>
+      </div>
+      <div class="content">
+        <div class="h1">Fundraiser List</div>
+        <div class="search">
+          <div class="form">
+            <div class="form-item">
+              <div class="headline">ORGANIZER</div>
+              <div class="input"><input id="organizer" /></div>
+            </div>
+            <div class="form-item">
+              <div class="headline">CITY</div>
+              <div class="input"><input id="city" /></div>
+            </div>
+            <div class="form-item">
+              <div class="headline">CATEGORY</div>
+              <div class="input">
+                <select id="category">
+                  <option value="" style="height: 0px;" disabled selected></option>
+                </select>
+              </div>
+            </div>
+            <div class="form-item">
+              <a href="#" onclick="searchTable()" class="button default">Search</a>
+              <a href="#" onclick="clearCheckboxes()" class="button default">Clear</a>
+            </div>
+          </div>
+          <div class="action">
+            <div><a href="./fundraiser-new.html" class="button primary">New</a></div>
+          </div>
+        </div>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>CAPTION</th>
+                <th>ORGANIZER</th>
+                <th>TARGET_FUNDING</th>
+                <th>CURRENT_FUNDING</th>
+                <th>CITY</th>
+                <th>ACTIVE</th>
+                <th>CATEGORY</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="Table">
+            </tbody>
+          </table>
+          <div class="no-data">You didn't find anything</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./js/index.js"></script>
+<script>
+  // Acquisition sort
+  getCategories(false)
+  // The fetch list is performed by default
+  searchTable()
+</script>
+</html>

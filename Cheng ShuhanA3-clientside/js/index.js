@@ -21,6 +21,11 @@ function toDetails(id) {
   window.location.href = './details.html?id=' + id
 }
 
+// Go to the Donate page
+function toDonate(id) {
+  window.location.href = './donate.html?id=' + id
+}
+
 // Home list template
 function template(data, index) {
     return `
@@ -52,6 +57,93 @@ function template(data, index) {
           </li>
       `
   }
+
+// Get a list of donations
+function getDonatesTemplate(data) {
+  let tem = ''
+  ;(data.donates || []).forEach((item, index) => {
+    return (tem += `
+              <div style="display:flex;flex-direction: column;border-bottom: 1px solid rgba(0,0,0,.063);margin-bottom: 16px">
+                <div style="margin:0;font-weight:700">${item.GIVER} - $ ${item.AMOUNT} AUD</div>
+                <div style="margin-top:8px;margin-bottom:8px;font-size:.75em">${item.formatted_date}</div>
+              </div>`)
+  })
+  if (data.donates.length === 0) {
+    tem = `<div style="width:100%;color:#999">No donations have been made</div>`
+  }
+  return tem
+}
+
+// Detail template
+function templateDetail(data) {
+  return `
+	<div class="widthCenter">
+        <div class="left">
+          <img src="./image/img${data.FUNDRAISER_ID}.png" alt="" />
+          <h4>${data.CAPTION}</h4>
+          <div class="combination">
+            <p class="address">${data.CITY}</p>
+            <p class="address">${data.CATEGORY_NAME}</p>
+            <p class="type">${data.ACTIVE === 1 ? 'Underway' : 'Stop'}</p>
+          </div>
+          <div class="about">
+            ${data.DESCRIPTION}
+          </div>
+        </div>
+        <div class="right">
+          <div class="card">
+            <div class="money">
+              <p class="text-base">Current:&nbsp;$${data.CURRENT_FUNDING}</p>
+              <p class="text-base">Target:&nbsp;$${data.TARGET_FUNDING}</p>
+            </div>
+            <div class="dinfo">
+              <div>Campaign created by RiseTogether Charities</div>
+              <div>Campaign funds will be received by RiseTogether Charities</div>
+            </div>
+            <div style="padding: 16px"><div class="button" onclick='toDonate(${data.FUNDRAISER_ID})'>Donate</div></div>
+          </div>
+          <div class="card" style="margin-top:32px;padding:16px;justify-content:start;width:100%">
+            <h2 style="margin-top:0">Recent Donations</h2>
+            <div style="width:100%;display:flex;flex-direction: column;">
+              ${getDonatesTemplate(data)}
+            </div>
+          </div>
+        </div>
+      </div>
+	`
+}
+
+// Donates form template
+function donatesFormTemplate() {
+  const local = JSON.parse(localStorage.getItem('details'))
+  return `
+    <div class="donate-left">
+          <h2>Donate to ${local.CAPTION}</h2>
+          <p>
+            <em>"What we do is not what we achieve, but what we do to help others."</em>
+          </p>
+          <p>
+            <em> --Winston Churchill</em>
+          </p>
+          <h4>Donation Amount:</h4>
+          <input type="number" min="0" id="AMOUNT" placeholder="Please enter a value of no less than 5 AUD" />
+          <h4>Name:</h4>
+          <input id="GIVER" placeholder="Name" />
+          <div><a href="#" class="button" onclick="submitMyDonate()">Submit my donation</a></div>
+        </div>
+        <div class="donate-right">
+          <div class="img"><img src="./image/img${local.FUNDRAISER_ID}.png" alt="" /></div>
+          <h4>About the Organizer:</h4>
+          <p>${local.ORGANIZER}, ${local.CITY}</p>
+        </div>
+  `
+}
+
+// Selector
+function templateOption(data) {
+  return `<option value="${data.CATEGORY_ID}" style="height: 0">${data.NAME}</option>`
+}
+
   // Get home page list
 function getFundraisers() {
     fetch('http://localhost:3090/fundraisers')

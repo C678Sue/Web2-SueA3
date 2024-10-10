@@ -344,3 +344,103 @@
     color: #05060f99;
     transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
   }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input:hover,
+  .input:focus,
+  .input-group:hover .input {
+    outline: none;
+    border-color: #05060f;
+  }
+  
+  .input-group:hover .label,
+  .input:focus {
+    color: #05060fc2;
+  }
+  
+  /* details */
+  .details .widthCenter {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .details .widthCenter .left {
+    width: 64%;
+    padding: 16px;
+  }
+
+  .details .widthCenter .left img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+
+  .details .widthCenter .right {
+    width: 34%;
+    padding: 16px;
+  }
+
+  .details .widthCenter .right .card {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 70px;
+  }
+  
+  .details .left h4 {
+    font-size: 32px;
+    margin: 16px 0;
+    margin-top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .details .combination p {
+    font-size: 18px;
+    margin: 16px 0;
+    margin-top: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .details .about {
+    font-size: 18px;
+  }
+  
+  .details .card .money {
+    width: 100%;
+    background-color: rgba(24, 184, 168, 0.6);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    padding: 0 16px;
+  }
+
+  .details .card .money p {
+    color: white;
+  }
+  
+  .details .dinfo {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .details .dinfo .button {
+    margin-top: 16px;
+  }
