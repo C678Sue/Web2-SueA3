@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin-Side</title>
+    <link rel="stylesheet" href="./style/management.css" /></style>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+		<a href="./fundraiser.html">Admin-Side</a>
+	  </div>
+      <div class="main">
+        <div class="side">
+			<a href="./fundraiser.html" class="active">Fundraiser</a>
+      		<a href="./category.html" >Category</a>
+		</div>
+        <div class="content">
+          <div class="h1">New</div>
+		  <div class="form">
+			<form id="newForm">
+				<label for="CAPTION">CAPTION<span class="required">*</span>:</label>
+				<div class="input"><input type="text" id="CAPTION" name="CAPTION" required></div><br><br>
+
+				<label for="category">CATEGORY<span class="required">*</span>:</label>
+				<div class="input">
+					<select type="number" id="category" name="CATEGORY_ID" required>
+					</select>
+				</div><br><br>
+
+				<label for="ORGANIZER">ORGANIZER<span class="required">*</span>:</label>
+				<div class="input"><input type="text" id="ORGANIZER" name="ORGANIZER" required></div><br><br>
+
+				<label for="TARGET_FUNDING">TARGET_FUNDING<span class="required">*</span>:</label>
+				<div class="input"><input type="number" id="TARGET_FUNDING" name="TARGET_FUNDING" value="1" min="1" required></div><br><br>
+
+				<!-- <label for="CURRENT_FUNDING">CURRENT_FUNDING<span class="required">*</span>:</label>
+				<div class="input"><input type="number" id="CURRENT_FUNDING" name="CURRENT_FUNDING" value="0" min="0" required></div><br><br> -->
+
+				<label for="CITY">CITY<span class="required">*</span>:</label>
+				<div class="input"><input id="CITY" name="TARGET_FUNDING" required></div><br><br>
+
+				<label for="ACTIVE">ACTIVE<span class="required">*</span>:</label>
+					<div class="radio">
+						<input type="radio" name="radio" value="1" checked required/>Underway
+						<input type="radio" name="radio" value="0" required />Finished
+					</div>
+				<br><br>
+
+				<div class="description">
+					<label for="DESCRIPTION">DESCRIPTION:</label>
+					<textarea placeholder="Please enter a description" id="DESCRIPTION" name="DESCRIPTION" rows="6" ></textarea>
+				</div>
+
+				<div class="submit"><button type="submit" class="button primary">Save</button></div>
+			</form>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/index.js"></script>
+  <script>
+	// Execute the Promise immediately
+	(async function(){
+		// Acquisition sort
+		await getCategories(false)
+		// Bind the submit event
+		await setNewFormSubmit()
+	})()  
+   </script>
+</html>
