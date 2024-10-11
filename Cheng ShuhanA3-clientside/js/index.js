@@ -144,7 +144,7 @@ function templateOption(data) {
   return `<option value="${data.CATEGORY_ID}" style="height: 0">${data.NAME}</option>`
 }
 
-  // Get home page list
+// Get home page list
 function getFundraisers() {
     fetch('http://localhost:3090/fundraisers')
       .then(response => response.json())
@@ -152,7 +152,43 @@ function getFundraisers() {
         res.forEach((element, index) => document.getElementById('A').insertAdjacentHTML('beforeend', template(element, index)))
       })
   }
-  //Add a scrolling fade-out effect to the welcome message
+
+// Get details
+function getDetails(id, isRender = true) {
+  fetch('http://localhost:3090/fundraiser/' + id)
+    .then(response => response.json())
+    .then(res => {
+      localStorage.setItem('details', JSON.stringify(res))
+      if (isRender) {
+        document.getElementById('B').insertAdjacentHTML('beforeend', templateDetail(res))
+      }
+    })
+}
+
+// Get all categories
+function getCategories() {
+  fetch('http://localhost:3090/categories')
+    .then(response => response.json())
+    .then(res => {
+      res.forEach(item => document.getElementById('E').insertAdjacentHTML('beforeend', templateOption(item)))
+    })
+}
+
+// Get search list
+function getSearch(params) {
+  const paramsUrl = new URLSearchParams(params)
+  fetch(`http://localhost:3090/search?${paramsUrl}`)
+    .then(response => response.json())
+    .then(res => {
+      document.getElementById('F').innerHTML = ''
+      if (res.length === 0) {
+        return (document.getElementById('F').innerHTML = `<div class="tips">No relevant information found</div>`)
+      }
+      res.forEach(item => document.getElementById('F').insertAdjacentHTML('beforeend', template(item)))
+    })
+}
+
+//Add a scrolling fade-out effect to the welcome message
 function setWelcome() {
     window.addEventListener('scroll', function () {
       //Get the element with the ID 'welcome'
@@ -172,6 +208,7 @@ function setWelcome() {
       }
     })
   }
+
   function getFormData() {
     const urlParams = new URLSearchParams(window.location.search)
     const local = JSON.parse(localStorage.getItem('details'))
@@ -183,4 +220,24 @@ function setWelcome() {
     }
   
     return formData
+  }
+
+  function submitMyDonate() {
+    const data = getFormData()
+    console.log(data)
+    if (Number(data.AMOUNT) < 5) return alert('The minimum donation amount is AUD 5')
+    fetch(`http://localhost:3090/donation`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(res => {
+      if (res.status === 200) {
+        alert('Thank you for your donation to ' + data.Name)
+        setTimeout(() => {
+          window.location.replace('./details.html?id=' + data.FUNDRAISER_ID)
+        }, 200)
+      }
+    })
   }
