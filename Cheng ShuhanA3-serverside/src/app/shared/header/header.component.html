@@ -1,0 +1,41 @@
+<div class="center header-fixed">
+  <div class="title">Yoga And Sue 's FundClub</div>
+  <div class="header">
+    <div class="logo"><a href="./index.html">RiseTogether</a></div>
+    <div class="menus">
+      <ul id="path">
+        <li (click)="navTo(item.path || '')" *ngFor="let item of routes" [class]="currentTitle === item.title ? 'active' : ''">{{ item.title }}</li>
+      </ul>
+    </div>
+    <div class="login">
+      <div class="button" style="margin-right: 16px" (click)="openIntro()">Intro</div>
+    </div>
+  </div>
+</div>
+<div class="placeholderDiv"></div>
+<!-- 欢迎语 -->
+<div class="welcome" id="welcome" *ngIf="welcome" #welcomeRef>
+  We're delighted to have you here. At RiseTogether, we connect passionate fundraisers with generous donors to support meaningful causes!
+</div>
+<!-- 轮播图 -->
+<div class="banner" *ngIf="banner">
+  <div class="carousel">
+    <div class="slides">
+      <img *ngFor="let item of images; let i = index" [src]="item" [alt]="item" [class]="active === i ? 'showBannerImage' : ''" />
+    </div>
+    <a class="prev" (click)="switchBanner(active - 1)">&#10094;</a>
+    <a class="next" (click)="switchBanner(active + 1)">&#10095;</a>
+    <div class="dots" style="text-align: center">
+      <div *ngFor="let item of images; let i = index" class="dot" [class]="active === i ? 'active' : ''" (click)="switchBanner(i)"></div>
+    </div>
+  </div>
+</div>
+
+<app-modal>
+  <h4 title>Introduction to Our Crowdfunding Platform</h4>
+  <p>
+    Welcome to our crowdfunding platform, where we believe in the power of platform to bring positive change. Our mission is to connect passionate individuals
+    with the resources they need to make a difference. Whether you are looking to support a cause or start your own project, our platform provides the tools and
+    support to help you succeed.
+  </p>
+</app-modal>

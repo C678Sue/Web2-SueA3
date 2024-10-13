@@ -1,0 +1,30 @@
+<div class="item" (click)="toDetails(data.FUNDRAISER_ID)">
+  <div class="card">
+    <span class="Fundraiser-ID">ID:&nbsp;{{ data.FUNDRAISER_ID }}</span>
+    <div class="image">
+      <img class="img" [src]="'assets/images/img' + data.FUNDRAISER_ID + '.png'" alt="" />
+      <div class="money">
+        <p class="text-base">Current:&nbsp;$ {{ data.CURRENT_FUNDING }}</p>
+        <p class="text-base">Target:&nbsp;$ {{ data.TARGET_FUNDING }}</p>
+      </div>
+    </div>
+    <div class="progressBar">
+      <div class="bar" [style.width]="getProgress(data) + '%'"></div>
+    </div>
+    <div class="info">
+      <h4>{{ data.CAPTION }}</h4>
+      <div class="combination">
+        <p class="address">
+          <a href="#" (click)="toDetails(data.FUNDRAISER_ID)">{{ data.ORGANIZER }}</a>
+        </p>
+        <p>|</p>
+        <p class="type">{{ data.CATEGORY_NAME }}</p>
+        <p>|</p>
+        <p class="address">{{ data.CITY }}</p>
+        <p>|</p>
+        <p class="type">{{ data.ACTIVE === 1 ? 'Active' : 'Not Suspended' }}</p>
+      </div>
+      <div class="about">{{ data.DESCRIPTION }}</div>
+    </div>
+  </div>
+</div>

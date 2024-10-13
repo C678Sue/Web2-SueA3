@@ -1,0 +1,9 @@
+<div class="modal" id="Modal" #modal>
+  <div class="masking" id="Masking" (click)="close()"></div>
+  <div class="content">
+    <ng-content select="[title]">
+      <h4></h4>
+    </ng-content>
+    <ng-content></ng-content>
+  </div>
+</div>
