@@ -6,7 +6,7 @@
 	symlinks = false
 	ignorecase = true
 [remote "origin"]
-	url = https://github.com/yangyijie816/Web-Development-II-A2.git
+	url = https://github.com/yangyijie816/Web-Development-II---A3.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
 	remote = origin
