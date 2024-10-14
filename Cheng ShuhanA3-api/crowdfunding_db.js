@@ -1,6 +1,10 @@
+// Import the mysql2 module to connect to the MySQL database
 const mysql = require('mysql2')
+// Import the express module to create a web application
 const express = require('express')
+// Import the cors module to handle cross-domain requests
 const cors = require('cors')
+// Import the cors module to handle cross-domain requests
 const app = express()
 // Default port number
 const port = 3091
