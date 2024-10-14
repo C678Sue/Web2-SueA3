@@ -2,13 +2,11 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   padding: 0;
   margin: 0;
   background-color: #fcfcfc;
 }
-
 ul,
 li,
 a {
@@ -16,7 +14,7 @@ a {
   list-style: none;
 }
 
-/* Common button styles */
+/* 公共button样式 */
 .button {
   font-size: 14px;
   padding: 12px 25px;
@@ -30,18 +28,15 @@ a {
   text-transform: none;
   cursor: pointer;
 }
-
 .button:hover {
   background-color: #18b8a8;
   transition-duration: 0.35s;
   transition-timing-function: ease-in-out;
 }
-
 .center {
   width: 1400px;
   margin: 0 auto;
 }
-
 .widthCenter {
   width: 1200px;
   margin: 0 auto;
@@ -60,7 +55,6 @@ a {
   align-items: center;
   justify-content: center;
 }
-
 .listStyle {
   display: grid;
   grid-template-columns: 386.66px 386.66px 386.66px;
@@ -68,14 +62,12 @@ a {
   grid-column-gap: 20px;
   padding: 0 !important;
 }
-
 .listStyle .item {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .card {
   position: relative;
   width: 100%;
@@ -86,19 +78,16 @@ a {
   background-color: #fff;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
-
 .card .image {
   width: 100%;
   height: 220px;
   overflow: hidden;
   position: relative;
 }
-
 .card .image img {
   height: 100%;
   transition: all 0.3s;
 }
-
 .card .image img:hover {
   transform: scale(1.05);
 }
@@ -141,20 +130,18 @@ a {
   margin-bottom: 8px;
   word-break: break-word;
 }
-
 .combination p {
   margin: 0px;
   font-size: 12px;
   font-weight: 700;
   margin-bottom: 5px;
 }
-
 .card .about {
-  display: -webkit-box; /* For WebKit browsers */
-  -webkit-box-orient: vertical; /* Vertical Arrangement */
-  -webkit-line-clamp: 3; /* Limit display to three lines*/
-  overflow: hidden; /* Hide excess */
-  text-overflow: ellipsis; /* Show ellipsis */
+  display: -webkit-box; /* 适用于WebKit浏览器 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  -webkit-line-clamp: 3; /* 限制显示三行 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 显示省略号 */
   font-size: 12px;
 }
 
@@ -168,12 +155,10 @@ a {
   padding: 80px 0;
   padding-bottom: 0;
 }
-
 .icon1 {
   width: 40px;
   height: 40px;
 }
-
 .icon2 {
   width: 30px;
   height: 30px;
@@ -200,7 +185,6 @@ a {
   flex-direction: column;
   gap: 16px;
 }
-
 .footer .icons2 > div {
   display: flex;
   align-items: center;
@@ -222,31 +206,26 @@ a {
   align-items: center;
   justify-content: center;
 }
-
 .form .widthCenter {
   margin-top: 40px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
 .form .widthCenter .search-form {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
 }
-
 .form .widthCenter .search-buts {
   display: flex;
   align-items: center;
   gap: 16px;
 }
-
 .search {
   margin-top: 16px !important;
 }
-
 /* input */
 .input {
   width: 190px;
@@ -280,7 +259,6 @@ a {
 .input-group .input {
   width: calc(100% - 140px);
 }
-
 .radio-group {
   gap: 8px;
 }
@@ -302,23 +280,19 @@ a {
   display: flex;
   justify-content: space-between;
 }
-
 .details .widthCenter .left {
   width: 64%;
   padding: 16px;
 }
-
 .details .widthCenter .left img {
   width: 100%;
   border-radius: 16px;
   margin-bottom: 16px;
 }
-
 .details .widthCenter .right {
   width: 34%;
   padding: 16px;
 }
-
 .details .widthCenter .right .card {
   width: 100%;
   min-height: 400px;
@@ -360,7 +334,6 @@ a {
   color: white;
   padding: 0 16px;
 }
-
 .details .card .money p {
   color: white;
 }
@@ -374,7 +347,6 @@ a {
   flex-direction: column;
   gap: 16px;
 }
-
 .details .dinfo .button {
   margin-top: 16px;
 }
@@ -383,7 +355,6 @@ a {
   padding: 80px 0;
   background-color: white;
 }
-
 .b-card-item {
   display: flex;
   flex-direction: column;
@@ -391,11 +362,9 @@ a {
   justify-content: center;
   gap: 16px;
 }
-
 .b-card-item h1 {
   font-size: 32px;
 }
-
 .b-card-item-btn {
   display: flex;
   align-items: center;
@@ -410,12 +379,10 @@ a {
   align-items: stretch;
   justify-content: space-between;
 }
-
 .donate-left {
   flex-basis: 60%;
   padding: 32px;
 }
-
 .donate-left input {
   background-color: #fafafa;
   border-color: #9ca3af;
@@ -427,34 +394,28 @@ a {
   padding-right: 0.75rem;
   width: 100%;
 }
-
 .donate-left div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .donate-left p {
   font-size: 14px;
 }
-
 .donate-left p:last-of-type {
   width: 100%;
   text-align: right;
 }
-
 .donate-left .button {
   display: inline-block;
   margin-top: 50px;
 }
-
 .donate-right {
   padding: 32px;
   flex-basis: 40%;
   background-color: rgb(245 245 245/0.8);
 }
-
 .donate-right .img {
   width: 100%;
   display: flex;
@@ -464,7 +425,6 @@ a {
   border-radius: 8px;
   overflow: hidden;
 }
-
 .donate-right .img img {
   width: auto;
   height: 222px;
@@ -478,12 +438,10 @@ a {
   height: 200px;
   font-weight: bold;
 }
-
 .red {
   color: red;
 }
-
-/* Fundraiser ID */
+/* 筹款人ID */
 .Fundraiser-ID {
   position: absolute;
   z-index: 9;
@@ -501,13 +459,12 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-/* Progress Bar */
+/* 进度条 */
 .progressBar {
   width: 100%;
   height: 10px;
   background-color: #d1d5db;
 }
-
 .progressBar .bar {
   height: 100%;
   background-color: #54c3b8;
@@ -526,7 +483,6 @@ a {
   padding: 0;
   transition: display 0.4s ease;
 }
-
 .masking {
   position: absolute;
   top: 0;
@@ -551,7 +507,6 @@ a {
   border-radius: 7px;
   min-width: 300px;
 }
-
 .modal .content h4 {
   width: 50vw;
   border-bottom: 1px solid #323232;
