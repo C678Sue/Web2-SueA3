@@ -12,9 +12,9 @@ app.use(cors())
 // Configuring database parameters
 const connection = mysql.createConnection({
   host: 'localhost', // Database ip
-  user: 'yyang68', // Database user name
-  password: 'Yifei030816@@', //'777486YYY', // Database password
-  database: 'yyang68_Web II_A3_yangyijie', // Database Name
+  user: 'scheng', // Database user name
+  password: 'Csh,150903', //'777486YYY', // Database password
+  database: 'scheng26_Web2_SueA3', // Database Name
 })
 
 // Linked database
