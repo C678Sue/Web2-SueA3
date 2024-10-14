@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host： localhost:3306
--- The date of generation： 2024-10-12 00:47:38
--- Version： 5.7.44-cll-lve
--- PHP version： 8.1.29
+-- 主机： localhost:3306
+-- 生成日期： 2024-10-12 00:47:38
+-- 服务器版本： 5.7.44-cll-lve
+-- PHP 版本： 8.1.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database： `yyang68_Web II_A3_yangyijie`
+-- 数据库： `yyang68_Web II_A3_yangyijie`
 --
 
 -- --------------------------------------------------------
 
 --
--- The structure of the table `category`
+-- 表的结构 `category`
 --
 
 CREATE TABLE `category` (
@@ -33,7 +33,7 @@ CREATE TABLE `category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
--- Dump the data in the table `category`
+-- 转存表中的数据 `category`
 --
 
 INSERT INTO `category` (`CATEGORY_ID`, `NAME`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `category` (`CATEGORY_ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- The structure of the table `donation`
+-- 表的结构 `donation`
 --
 
 CREATE TABLE `donation` (
@@ -58,7 +58,7 @@ CREATE TABLE `donation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
--- Dump the data in the table `donation`
+-- 转存表中的数据 `donation`
 --
 
 INSERT INTO `donation` (`DONATION_ID`, `DATE`, `AMOUNT`, `GIVER`, `FUNDRAISER_ID`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `donation` (`DONATION_ID`, `DATE`, `AMOUNT`, `GIVER`, `FUNDRAISER_ID
 -- --------------------------------------------------------
 
 --
--- The structure of the table `fundraiser`
+-- 表的结构 `fundraiser`
 --
 
 CREATE TABLE `fundraiser` (
@@ -96,7 +96,7 @@ CREATE TABLE `fundraiser` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 --
--- Dump the data in the table `fundraiser`
+-- 转存表中的数据 `fundraiser`
 --
 
 INSERT INTO `fundraiser` (`FUNDRAISER_ID`, `ORGANIZER`, `CAPTION`, `TARGET_FUNDING`, `CURRENT_FUNDING`, `CITY`, `ACTIVE`, `CATEGORY_ID`, `DESCRIPTION`) VALUES
@@ -113,63 +113,63 @@ INSERT INTO `fundraiser` (`FUNDRAISER_ID`, `ORGANIZER`, `CAPTION`, `TARGET_FUNDI
 (11, 'Run Wild Inc', 'Preserve Verkeerderkill Falls with Run Wild', 200000.00, 0.00, 'Wallkill', 1, 3, '<p>Run Wild is working with the Open Space Institute (OSI) to preserve one of New York’s iconic natural features – Verkeerderkill Falls.\n</p>\n<p>This beautiful waterfall pours off a mountain ledge nearly 2,000 feet above the Hudson Valley and plunges 187 feet into a basin of hemlocks. Welcome to one of the most spectacular sites in the Northern Shawangunk Mountains, located near the town of New Paltz, just a two-hour drive north of New York City. The Shawangunks (or “Gunks” for short) are a magical environment which the Nature Conservancy has proclaimed as “one of Earth’s last great places.”</p>\n<p>For many years, the land underlying the falls has been held in private hands. Recently, OSI negotiated an option to purchase 122 acres containing the falls, with the plan to convey the land to the State of New York for permanent protection as part of Minnewaska State Park Preserve.</p>\n<p>To exercise the option requires $500,000, which must be raised before November 30, 2025, at which point the option will expire. To ensure the falls are permanently protected, Run Wild has reserved $50,000 from its mission funds to contribute to this important cause and has embarked upon a fundraising campaign to raise an additional $150,000. We believe that the State of New York will cover the remaining balance.</p>\n<p>New York is a conservation success story, thanks to countless campaigns like this one over many, many years. You can be part of this movement. You can help preserve our natural environment for the next generation.</p>\n<p>Please join us in preserving the falls!</p>\n<p>Run Wild is a New York State not-for-profit and 501(c)3 whose mission is to support land conservation and stewardship in the Hudson Valley by leveraging the enthusiasm of the running community. As of August 2024, we have contributed just over $130,000 to this mission from the proceeds of races we organize and other fundraising. For more information, visit us at www.runwildhv.org\n</p>\n<p>Note: 100% of your contribution will go to this campaign. We will not use any of your contribution to cover expenses. If we raise more funds than are necessary to exercise the option, or in the event that the option is not exercised for reasons outside of our control, we will retain the funds contributed for future land conservation and stewardship opportunities in the Hudson Valley.</p>');
 
 --
--- The index of the dump table
+-- 转储表的索引
 --
 
 --
--- The index of the table `category`
+-- 表的索引 `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`CATEGORY_ID`) USING BTREE;
 
 --
--- The index of the table `donation`
+-- 表的索引 `donation`
 --
 ALTER TABLE `donation`
   ADD PRIMARY KEY (`DONATION_ID`) USING BTREE,
   ADD KEY `FUNDRAISER_ID` (`FUNDRAISER_ID`) USING BTREE;
 
 --
--- The index of the table `fundraiser`
+-- 表的索引 `fundraiser`
 --
 ALTER TABLE `fundraiser`
   ADD PRIMARY KEY (`FUNDRAISER_ID`) USING BTREE,
   ADD KEY `CATEGORY_ID` (`CATEGORY_ID`) USING BTREE;
 
 --
--- Use AUTO_INCREMENT in the exported table
+-- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- Use table AUTO-INCREMENT ` category`
+-- 使用表AUTO_INCREMENT `category`
 --
 ALTER TABLE `category`
   MODIFY `CATEGORY_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Using table AUTO-INCREMENT ` donation`
+-- 使用表AUTO_INCREMENT `donation`
 --
 ALTER TABLE `donation`
   MODIFY `DONATION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- Use table AUTO-INCREMENT ` fundraiser`
+-- 使用表AUTO_INCREMENT `fundraiser`
 --
 ALTER TABLE `fundraiser`
   MODIFY `FUNDRAISER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Limit exported tables
+-- 限制导出的表
 --
 
 --
--- Restriction Table 'Donation'`
+-- 限制表 `donation`
 --
 ALTER TABLE `donation`
   ADD CONSTRAINT `donation_ibfk_1` FOREIGN KEY (`FUNDRAISER_ID`) REFERENCES `fundraiser` (`FUNDRAISER_ID`);
 
 --
--- Limit Table 'Fundraiser'`
+-- 限制表 `fundraiser`
 --
 ALTER TABLE `fundraiser`
   ADD CONSTRAINT `fundraiser_ibfk_1` FOREIGN KEY (`CATEGORY_ID`) REFERENCES `category` (`CATEGORY_ID`);
