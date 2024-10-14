@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'A3-adminside' title`, () => {
+  it(`should have the 'ng-adminside' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('A3-adminside');
+    expect(app.title).toEqual('ng-adminside');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, A3-adminside');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-adminside');
   });
 });

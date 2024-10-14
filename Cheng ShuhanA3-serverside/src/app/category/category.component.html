@@ -1,0 +1,24 @@
+<app-layout>
+  <div class="h1">Category List</div>
+  <div class="search">
+    <div class="form"></div>
+    <div class="action">
+      <!-- <div><a href="./category-new.html" class="button primary">New</a></div> -->
+    </div>
+  </div>
+  <div class="table">
+    <table id="Table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let data of categorys">
+        <td>{{ data.CATEGORY_ID }}</td>
+        <td>{{ data.NAME }}</td>
+      </tr>
+    </table>
+    <div class="no-data" *ngIf="categorys.length <= 0">You didn't find anything</div>
+  </div>
+</app-layout>

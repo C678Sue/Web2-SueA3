@@ -1,0 +1,54 @@
+<app-layout>
+  <div class="h1">New</div>
+  <div class="form">
+    <form id="newForm" (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <label for="CAPTION">CAPTION<span class="required">*</span>:</label>
+      <div class="input">
+        <input type="text" id="CAPTION" name="CAPTION" [(ngModel)]="formData.caption" required />
+      </div>
+      <br /><br />
+
+      <label for="category">CATEGORY<span class="required">*</span>:</label>
+      <div class="input">
+        <select id="category" name="CATEGORY_ID" [(ngModel)]="formData.categoryId" required>
+          <option *ngFor="let item of categories" [value]="item.CATEGORY_ID">{{ item.NAME }}</option>
+        </select>
+      </div>
+      <br /><br />
+
+      <label for="ORGANIZER">ORGANIZER<span class="required">*</span>:</label>
+      <div class="input">
+        <input type="text" id="ORGANIZER" name="ORGANIZER" [(ngModel)]="formData.organizer" required />
+      </div>
+      <br /><br />
+
+      <label for="TARGET_FUNDING">TARGET_FUNDING<span class="required">*</span>:</label>
+      <div class="input">
+        <input type="number" id="TARGET_FUNDING" name="TARGET_FUNDING" [(ngModel)]="formData.targetFunding" min="1" required />
+      </div>
+      <br /><br />
+
+      <label for="CITY">CITY<span class="required">*</span>:</label>
+      <div class="input">
+        <input id="CITY" name="CITY" [(ngModel)]="formData.city" required />
+      </div>
+      <br /><br />
+
+      <label for="ACTIVE">Status<span class="required">*</span>:</label>
+      <div class="radio">
+        <input type="radio" name="ACTIVE" [(ngModel)]="formData.active" value="1" required />Active
+        <input type="radio" name="ACTIVE" [(ngModel)]="formData.active" value="0" required />Not Suspended
+      </div>
+      <br /><br />
+
+      <div class="description">
+        <label for="DESCRIPTION">DESCRIPTION:</label>
+        <textarea placeholder="Please enter a description" id="DESCRIPTION" name="DESCRIPTION" [(ngModel)]="formData.description" rows="6"></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit" class="button primary">Save</button>
+      </div>
+    </form>
+  </div>
+</app-layout>

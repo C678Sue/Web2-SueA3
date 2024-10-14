@@ -1,53 +1,101 @@
-<app-header></app-header>
-
-<div class="list">
-  <ul class="widthCenter listStyle" id="A">
-    <app-f-card *ngFor="let item of fundraisers" [data]="item"></app-f-card>
-  </ul>
-</div>
-<div class="footer">
-  <div class="widthCenter">
-    <ul>
-      <li>
-        <div>Stay Connected</div>
-        <div class="icons">
-          <img class="icon1" src="assets/images/icon1.jpg" alt="" />
-          <img class="icon1" src="assets/images/icon2.jpg" alt="" />
-          <img class="icon1" src="assets/images/icon3.jpg" alt="" />
-          <img class="icon1" src="assets/images/icon4.jpg" alt="" />
-        </div>
-      </li>
-      <li>
-        <div>contact me</div>
-        <div class="icons2">
-          <div>
-            <img class="icon2" src="assets/images/icon5.png" alt="" />
-            <div style="text-decoration: underline">292705240</div>
-          </div>
-          <div>
-            <img class="icon2" src="assets/images/icon6.png" alt="" />
-            <div style="text-decoration: underline">01234777</div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div>Special Thanks</div>
-        <div>Hope never fades because of you.</div>
-        <div>Thankyou for being part of our journey!</div>
-      </li>
-    </ul>
-    <div class="footer-text"></div>
+<app-layout>
+  <div class="h1" style="width: 100%; display: flex; align-items: center; justify-content: space-between">
+    <span>Fundraiser List</span>
+    <div (click)="navTo('new')" class="button primary">New</div>
   </div>
-</div>
-
-<div class="modal" id="Modal">
-  <div class="masking" id="Masking"></div>
-  <div class="content">
-    <h4>Introduction to Our Crowdfunding Platform</h4>
-    <p>
-      Welcome to our crowdfunding platform, where we believe in the power of platform to bring positive change. Our mission is to connect passionate individuals
-      with the resources they need to make a difference. Whether you are looking to support a cause or start your own project, our platform provides the tools
-      and support to help you succeed.
-    </p>
+  <div class="search" style="margin-bottom: 16px">
+    <form style="width: 100%">
+      <div class="form">
+        <div class="form-item">
+          <label class="headline">Caption: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input"><input autocomplete="off" name="CAPTION" id="CAPTION" [(ngModel)]="formData.caption" /></div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">Organizer: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input"><input autocomplete="off" name="ORGANIZER" id="ORGANIZER" [(ngModel)]="formData.organizer" /></div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">City: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input"><input autocomplete="off" name="CITY" id="CITY" [(ngModel)]="formData.city" /></div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">Target financing: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input"><input autocomplete="off" name="TARGET_FUNDING" id="TARGET_FUNDING" [(ngModel)]="formData.targetFunding" /></div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">Current funds: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input">
+            <input autocomplete="off" name="CURRENT_FUNDING" id="CURRENT_FUNDING" [(ngModel)]="formData.currentFunding" />
+          </div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">Category: &nbsp;&nbsp;&nbsp;</label>
+          <div class="input">
+            <select autocomplete="off" name="CATEGORY_ID" id="CATEGORY_ID" class="input" [(ngModel)]="formData.categoryId" style="width: 100%">
+              <option *ngFor="let item of categories" [value]="item.CATEGORY_ID">{{ item.NAME }}</option>
+            </select>
+          </div>
+          <div></div>
+        </div>
+        <div class="form-item">
+          <label class="headline">Status: &nbsp;&nbsp;&nbsp;</label>
+          <div style="display: flex; gap: 32px">
+            <div style="display: flex">
+              <input type="radio" name="ACTIVE" id="active" value="1" [(ngModel)]="formData.selectedRadio" />
+              <span style="white-space: nowrap">Active</span>
+            </div>
+            <div style="display: flex; margin-left: 10px">
+              <input type="radio" name="ACTIVE" id="not-active" value="0" [(ngModel)]="formData.selectedRadio" />
+              <span style="white-space: nowrap">Not Suspended</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-item" style="justify-content: flex-end">
+          <div class="button default" (click)="search()">Search</div>
+          <div class="button default" (click)="clearCheckboxes()">Clear</div>
+        </div>
+      </div>
+    </form>
   </div>
-</div>
+  <div class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>CAPTION</th>
+          <th>ORGANIZER</th>
+          <th>TARGET_FUNDING</th>
+          <th>CURRENT_FUNDING</th>
+          <th>CITY</th>
+          <th>Status</th>
+          <th>CATEGORY</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="Table">
+        <tr *ngFor="let data of fundraisers">
+          <td>{{ data.FUNDRAISER_ID }}</td>
+          <td>{{ data.CAPTION }}</td>
+          <td>{{ data.ORGANIZER }}</td>
+          <td>{{ data.TARGET_FUNDING }}</td>
+          <td>{{ data.CURRENT_FUNDING }}</td>
+          <td>{{ data.CITY }}</td>
+          <td>{{ data.ACTIVE == 1 ? 'Active' : 'Not Suspended' }}</td>
+          <td>{{ data.CATEGORY_NAME }}</td>
+          <td>
+            <div>
+              <div (click)="navTo('edit', data.FUNDRAISER_ID)" class="button default">Edit</div>
+              <div (click)="showConfirm(data.FUNDRAISER_ID)" class="button delete">Delete</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="no-data" *ngIf="fundraisers.length <= 0">You didn't find anything</div>
+  </div>
+</app-layout>

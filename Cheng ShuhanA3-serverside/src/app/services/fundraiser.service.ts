@@ -15,14 +15,54 @@ export interface FundraiserType {
   DESCRIPTION: string // 描述
 }
 
+export interface CategoriesType {
+  CATEGORY_ID: number // 分类 ID
+  NAME: string // 标题
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class FundraiserService {
-  private apiUrl = 'https://24275293.it.scu.edu.au/fundraisers'
+  private apiUrl = 'https://24275293.it.scu.edu.au/'
   constructor(private http: HttpClient) {}
 
   getFundraiser(): Observable<FundraiserType[]> {
-    return this.http.get<FundraiserType[]>(this.apiUrl)
+    return this.http.get<FundraiserType[]>(this.apiUrl + 'fundraisers')
+  }
+
+  searchFundraiser(params: any): Observable<FundraiserType[]> {
+    return this.http.get<FundraiserType[]>(this.apiUrl + 'search', { params })
+  }
+
+  // 类别
+  getCategories(): Observable<CategoriesType[]> {
+    return this.http.get<CategoriesType[]>(this.apiUrl + 'categories')
+  }
+
+  // 详情
+  getDetails(id: number): Observable<FundraiserType> {
+    return this.http.get<FundraiserType>(this.apiUrl + 'fundraiser/' + id)
+  }
+
+  // 新增捐款人
+  setDonation(data: any) {
+    return this.http.post<FundraiserType>(this.apiUrl + 'donation', data)
+  }
+
+  // 新增筹款活动
+  setFundraiser(form: any): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>(this.apiUrl + 'fundraiser', form)
+  }
+
+  // 更新筹款人信息
+  updateFundraiser(id: number, form: any): Observable<{ message: string }> {
+    delete form.id
+    return this.http.put<{ message: string }>(this.apiUrl + 'fundraiser/' + id, form)
+  }
+
+  // delete
+  deleteFundraiser(id: number) {
+    return this.http.delete<{ message: string }>(this.apiUrl + 'fundraiser/' + id)
   }
 }
