@@ -1,0 +1,68 @@
+<app-header [banner]="false" [welcome]="false"></app-header>
+<div class="form">
+  <div class="widthCenter">
+    <form style="width: 100%">
+      <div class="search-form">
+        <div class="input-group">
+          <label class="label">Caption: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="CAPTION" id="CAPTION" class="input" [(ngModel)]="formData.caption" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">Organizer: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="ORGANIZER" id="ORGANIZER" class="input" [(ngModel)]="formData.organizer" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">City: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="CITY" id="CITY" class="input" [(ngModel)]="formData.city" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">Target financing: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="TARGET_FUNDING" id="TARGET_FUNDING" class="input" [(ngModel)]="formData.targetFunding" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">Current funds: &nbsp;&nbsp;&nbsp;</label>
+          <input autocomplete="off" name="CURRENT_FUNDING" id="CURRENT_FUNDING" class="input" [(ngModel)]="formData.currentFunding" />
+          <div></div>
+        </div>
+        <div class="input-group">
+          <label class="label">Category: &nbsp;&nbsp;&nbsp;</label>
+          <select autocomplete="off" name="CATEGORY_ID" id="CATEGORY_ID" class="input" [(ngModel)]="formData.categoryId">
+            <option *ngFor="let item of categories" [value]="item.CATEGORY_ID">{{ item.NAME }}</option>
+          </select>
+          <div></div>
+        </div>
+        <div class="input-group radio-group">
+          <label class="label">Status: &nbsp;&nbsp;&nbsp;</label>
+          <div style="display: flex">
+            <div style="display: flex">
+              <input type="radio" name="ACTIVE" id="active" value="1" [(ngModel)]="formData.selectedRadio" />
+              <span style="white-space: nowrap">Active</span>
+            </div>
+            <div style="display: flex; margin-left: 10px">
+              <input type="radio" name="ACTIVE" id="not-active" value="0" [(ngModel)]="formData.selectedRadio" />
+              <span style="white-space: nowrap">Not Suspended</span>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <div class="search-buts" style="justify-content: flex-end">
+          <div class="button" (click)="search()">Search</div>
+          <div class="button" (click)="clearCheckboxes()">Clear</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="list search">
+  <div class="widthCenter listStyle" id="F">
+    <app-f-card *ngFor="let item of fundraisers" [data]="item"></app-f-card>
+    <div *ngIf="fundraisers.length === 0"></div>
+    <div *ngIf="fundraisers.length === 0" class="tips" [class]="tipsClass">{{ tips }}</div>
+    <div *ngIf="fundraisers.length === 0"></div>
+  </div>
+</div>
+<app-footer></app-footer>

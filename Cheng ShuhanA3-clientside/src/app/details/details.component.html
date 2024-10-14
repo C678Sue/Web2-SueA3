@@ -1,0 +1,48 @@
+<app-header [banner]="false" [welcome]="false"></app-header>
+<div class="details" id="B">
+  <div class="widthCenter">
+    <div class="left">
+      <img [src]="'assets/images/img' + data.FUNDRAISER_ID + '.png'" alt="" />
+      <h4>{{ data.CAPTION }}</h4>
+      <div class="combination">
+        <p class="address">{{ data.CITY }}</p>
+        <p class="address">{{ data.CATEGORY_NAME }}</p>
+        <p class="type">{{ data.ACTIVE === 1 ? 'Active' : 'Not Suspended' }}</p>
+        <p class="address">ID：{{ data.FUNDRAISER_ID }}</p>
+      </div>
+      <div class="about" [innerHTML]="data.DESCRIPTION"></div>
+    </div>
+    <div class="right">
+      <div class="card">
+        <div class="money">
+          <p class="text-base">Current:&nbsp;${{ data.CURRENT_FUNDING }}</p>
+          <p class="text-base">Target:&nbsp;${{ data.TARGET_FUNDING }}</p>
+        </div>
+        <div class="dinfo">
+          <div>This activity was created by {{ data.ORGANIZER }}</div>
+          <div>Campaign funds will be received by RiseTogether Charities</div>
+        </div>
+        <div style="padding: 16px"><div class="button" (click)="toDonate(data.FUNDRAISER_ID)">Donate</div></div>
+      </div>
+      <div class="card" style="margin-top: 32px; padding: 16px; justify-content: start; width: 100%">
+        <h2 style="margin-top: 0">Recent Donations</h2>
+        <div style="width: 100%; display: flex; flex-direction: column">
+          <div
+            style="display: flex; flex-direction: column; border-bottom: 1px solid rgba(0, 0, 0, 0.063); margin-bottom: 16px"
+            *ngFor="let item of data.donates"
+          >
+            <div style="margin: 0; font-weight: 700">{{ item.GIVER }} - $ {{ item.AMOUNT }} AUD</div>
+            <div style="margin-top: 8px; margin-bottom: 8px; font-size: 0.75em">{{ item.formatted_date }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="b-card">
+  <div class="b-card-item widthCenter">
+    <h1>RiseTogether</h1>
+    <h2 class="">The place where help and hope go hand in hand.</h2>
+  </div>
+</div>
+<app-footer></app-footer>

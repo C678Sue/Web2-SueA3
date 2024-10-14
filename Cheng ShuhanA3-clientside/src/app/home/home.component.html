@@ -1,0 +1,19 @@
+<app-header></app-header>
+
+<div class="list">
+  <ul class="widthCenter listStyle" id="A">
+    <app-f-card *ngFor="let item of fundraisers" [data]="item"></app-f-card>
+  </ul>
+</div>
+<app-footer></app-footer>
+<div class="modal" id="Modal">
+  <div class="masking" id="Masking"></div>
+  <div class="content">
+    <h4>Introduction to Our Crowdfunding Platform</h4>
+    <p>
+      Welcome to our crowdfunding platform, where we believe in the power of platform to bring positive change. Our mission is to connect passionate individuals
+      with the resources they need to make a difference. Whether you are looking to support a cause or start your own project, our platform provides the tools
+      and support to help you succeed.
+    </p>
+  </div>
+</div>

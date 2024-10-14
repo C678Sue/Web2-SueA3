@@ -1,0 +1,34 @@
+<app-header [welcome]="false"></app-header>
+<div class="list">
+  <div class="widthCenter donate" id="Donate">
+    <div class="donate-left">
+      <h2>Donate to {{ local.CAPTION }}</h2>
+      <p>
+        <em>"What we do is not what we achieve, but what we do to help others."</em>
+      </p>
+      <p>
+        <em> --Winston Churchill</em>
+      </p>
+      <h4>Donation Amount:</h4>
+      <input type="number" min="0" id="AMOUNT" [(ngModel)]="formData.AMOUNT" placeholder="Please enter a value of no less than 5 AUD" />
+      <h4>Name:</h4>
+      <input id="GIVER" placeholder="Name" [(ngModel)]="formData.GIVER" />
+      <div><div class="button" (click)="submitMyDonate()">Submit my donation</div></div>
+    </div>
+    <div class="donate-right">
+      <div class="img"><img [src]="'assets/images/img' + local.FUNDRAISER_ID + '.png'" alt="" /></div>
+      <h4>About the Organizer:</h4>
+      <p>
+        <a href="#" (click)="toDetails(local.FUNDRAISER_ID)">{{ local.ORGANIZER }}</a
+        >,{{ local.CITY }}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="b-card">
+  <div class="b-card-item widthCenter">
+    <h1>RiseTogether</h1>
+    <h2 class="">The place where help and hope go hand in hand.</h2>
+  </div>
+</div>
+<app-footer></app-footer>
