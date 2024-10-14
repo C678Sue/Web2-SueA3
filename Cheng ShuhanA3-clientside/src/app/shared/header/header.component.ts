@@ -18,16 +18,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   @ViewChild('welcomeRef') welcomeRef!: ElementRef
   @ViewChild(ModalComponent) modalChild!: ModalComponent
-  // 路由参数
+  // Routing parameters
   routes: Routes = []
   currentTitle: Route['title'] = undefined
-  // 轮播图
+  // Carousel image
   active: number = 0
   images: string[] = ['assets/images/1.png', 'assets/images/2.png', 'assets/images/3.png', 'assets/images/4.png', 'assets/images/5.png']
-  // 计时器
+  // Timer
   private autoPlayIntervalId: ReturnType<typeof setInterval> | null = null
 
-  // 初始化
+  // Initialization
   ngOnInit() {
     this.routes = routes.filter(f => !f.data || f.data['isMenu'] !== false)
     this.currentTitle = this.route.routeConfig?.title
@@ -38,16 +38,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.setWelcome()
     }
   }
-  // 销毁
+  // Destruction
   ngOnDestroy() {
-    // 销毁计时器
+    // Destruction timer
     if (this.autoPlayIntervalId !== null) clearInterval(this.autoPlayIntervalId)
   }
-  // 跳转
+  // Jump to
   navTo(url: string) {
     this.router.navigate([url])
   }
-  // 轮播图
+  // Carousel image
   switchBanner(index: number) {
     if (index < 0) {
       this.active = this.images.length - 1
@@ -57,7 +57,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.active = index
     }
   }
-  // 自动播放
+  // Auto play
   autoplay() {
     this.autoPlayIntervalId = setInterval(() => {
       this.switchBanner(this.active + 1)

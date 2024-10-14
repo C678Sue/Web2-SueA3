@@ -12,18 +12,18 @@ app.use(cors())
 // Configuring database parameters
 const connection = mysql.createConnection({
   host: 'localhost', // Database ip
-  user: 'yyang68', // Database user name
-  password: 'Yifei030816@@', //'777486YYY', // Database password
-  database: 'yyang68_Web II_A3_yangyijie', // Database Name
+  user: 'scheng26', // Database user name
+  password: 'Csh,150903', //'777486YYY', // Database password
+  database: 'scheng26_Web2_SueA3', // Database Name
 })
 
 // Linked database
 connection.connect(err => {
   if (err) {
-    console.log('数据库连接失败: ' + err.stack)
+    console.log('The database connection failed: ' + err.stack)
     return
   }
-  console.log('数据库连接成功！')
+  console.log('The database connection is successful!')
 })
 
 // Get a list of fundraisers
@@ -119,10 +119,10 @@ app.get('/fundraiser/:id', (req, res) => {
       return res.status(500).json({ error: err.message })
     }
     if (results.length === 0) {
-      return res.status(404).json({ message: '查询数据不存在' })
+      return res.status(404).json({ message: 'The query data does not exist' })
     }
     const data = results[0]
-    //查询关联表所有捐赠人信息
+    // Query all donor information in the association table
     const donateQuery = `SELECT *, DATE_FORMAT(DATE, '%Y-%m-%d %H:%i:%s') AS formatted_date FROM donation WHERE FUNDRAISER_ID = ? ORDER BY DATE DESC;`
     connection.query(donateQuery, [data.FUNDRAISER_ID], (error, donateResults) => {
       if (error) return res.status(500).json({ message: error.message })
@@ -132,7 +132,7 @@ app.get('/fundraiser/:id', (req, res) => {
   })
 })
 
-// 创建PUT方法，根据给定的ID更新现有的筹款人。
+// Create a PUT method to update existing fundraisers based on the given ID.
 app.put('/fundraiser/:id', async (req, res) => {
   const fundraiserId = req.params.id
   if (fundraiserId === undefined || fundraiserId === null) return res.status(400).json({ message: 'lack id parameter' })
@@ -150,14 +150,14 @@ app.put('/fundraiser/:id', async (req, res) => {
   values.push(Number(fundraiserId))
   connection.execute(query, values, err => {
     if (!err) {
-      res.status(200).json({ message: '筹款者信息更新成功' })
+      res.status(200).json({ message: 'Fundraiser information updated successfully' })
     } else {
       res.status(500).json({ message: err.message })
     }
   })
 })
 
-// 添加新的捐赠信息
+// Add a new donation message
 app.post('/donation', (req, res) => {
   const { AMOUNT, GIVER, FUNDRAISER_ID } = req.body
   if (AMOUNT === null) return res.status(400).json({ message: 'The amount is required' })
@@ -168,7 +168,7 @@ app.post('/donation', (req, res) => {
   connection.query(query, [date, Number(AMOUNT), GIVER, Number(FUNDRAISER_ID)], async (err, results) => {
     if (err) return res.status(500).json({ error: err.message })
     try {
-      // 更新筹款人筹集当前资金
+      // Update the fundraiser to raise current funds
       const sql = 'UPDATE fundraiser SET CURRENT_FUNDING = CURRENT_FUNDING + ? WHERE FUNDRAISER_ID = ?'
       await connection.execute(sql, [AMOUNT, FUNDRAISER_ID])
       res.status(200).json({ message: '添加成功' })
@@ -178,7 +178,7 @@ app.post('/donation', (req, res) => {
   })
 })
 
-// 创建POST方法将新的筹款人插入数据库。
+// Create a POST method to insert new fundraisers into the database.
 app.post('/fundraiser', (req, res) => {
   const { ORGANIZER, CAPTION, TARGET_FUNDING, CITY, ACTIVE, CATEGORY_ID, DESCRIPTION } = req.body
   if (ORGANIZER === null) return res.status(400).json({ message: 'lack ORGANIZER parameter' })
@@ -195,7 +195,7 @@ app.post('/fundraiser', (req, res) => {
   })
 })
 
-//创建DELETE方法删除基于给定ID的现有筹款人。只有尚未收到捐款的筹款人才能被删除。否则，就违背了数据完整性的概念。
+// Create a DELETE method to remove existing fundraisers based on a given ID. Only fundraisers who have not yet received donations can be deleted. Otherwise, the concept of data integrity is violated.
 app.delete('/fundraiser/:id', (req, res) => {
   const fundraiserId = req.params.id
   const checkQuery = 'SELECT COUNT(*) AS donations FROM donation WHERE FUNDRAISER_ID = ?'
@@ -214,5 +214,5 @@ app.delete('/fundraiser/:id', (req, res) => {
 
 // Database startup
 app.listen(port, () => {
-  console.log('启动成功：' + `http://localhost:${port}`)
+  console.log('The startup was successful：' + `http://localhost:${port}`)
 })
